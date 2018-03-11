@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// port env variable setup by Heroku, app can work with heroku or run locally on 3000
+const port = process.env.PORT || 3000;
 var app = express();          // this creates web app
 
 // http get request handler, first arg is URL of app (our case: root), and function to serve http requests
@@ -88,6 +90,11 @@ app.get('/bad', (req, res) => {
 }); // end app.get()
 
 // nothing listening until...
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
-});       // port 3000
+// app.listen(3000, () => {
+//   console.log('Server is up on port 3000');
+// });       // port 3000
+
+// use environment variable set by heroku
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
+});
