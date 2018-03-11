@@ -82,6 +82,13 @@ app.get('/about', (req, res) => {
 //   res.send('You are in a subdir');
 // }); // end app.get ()
 
+// subdirs created automagically
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Portfolio Page'
+  });
+}); // end app.get()
+
 // sednd back json error message
 app.get('/bad', (req, res) => {
   res.send ({
